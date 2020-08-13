@@ -18,7 +18,7 @@ namespace LetterRemover
             
             Console.WriteLine("Welcome to the letter remover application! You will be prompted to enter both a string and a character, and every instance of that character will be removed from the string.\n");
 
-    
+            
         }
     }
 }
