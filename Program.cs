@@ -14,43 +14,55 @@ namespace LetterRemover
             Last Modified: August 13, 2020
             */
 
-            string userInput, userChar, output="";
+            string userInput, userChar, output="", menuChoice = "";
             
             Console.WriteLine("Welcome to the letter remover application! You will be prompted to enter both a string and a character, and every instance of that character will be removed from the string.\n");
 
-            Console.Write("Please enter a string from which characters will be removed: ");
-            //userInput = Console.ReadLine();
-            userInput = "Jaames";
+            do
+            {
 
-            Console.Write("Please enter a character to remove from the string: ");
-            //userChar = Console.ReadLine();
-            userChar = "a";
+                Console.Write("Type \"Done\" to exit, or press enter to modify a string.");
+                menuChoice = Console.ReadLine();
+                if (menuChoice.ToLower() != "done")
+                {
+                    Console.Write("Please enter a string from which characters will be removed: ");
+                    userInput = Console.ReadLine().Trim();
+
+                    Console.Write("Please enter a character to remove from the string: ");
+                    userChar = Console.ReadLine();
+
+                    
+                
+                    for (int i = 0; i < userInput.Length; i++)
+                    {
+                        if (userInput.ToUpper()[i] != userChar.ToUpper()[0])
+                        {
+                            output += userInput[i];
+                        }
+                    }
+                
+                
+                    /*
+
+                    for (int i = 0; i < userInput.Length; i++)
+                    {
+                        if (userInput[i] == userChar[0])
+                        {
+                            // If we try to assign output here rather than userInput, it creates an infinite loop because
+                            // we will continuously set output and then decrement, but without changing the string we are
+                            // iterating through, it will check the same character forever.
+                            userInput = userInput.Remove(i, 1);
+                            i--;
+                        }
+                    }
+                    output = userInput;
+
+                    */
+
+                    Console.WriteLine($"Your modified string is on the next line:\n{output}");
+                }
             
-            /*
-            for (int i = 0; i < userInput.Length; i++)
-            {
-                if (userInput[i] != userChar[0])
-                {
-                    output += userInput[i];
-                }
-            }
-            */
-        
-            for (int i = 0; i < userInput.Length; i++)
-            {
-                if (userInput[i] == userChar[0])
-                {
-                    // If we try to assign output here rather than userInput, it creates an infinite loop because
-                    // we will continuously set output and then decrement, but without changing the string we are
-                    // iterating through, it will check the same character forever.
-                    userInput = userInput.Remove(i, 1);
-                    i--;
-                }
-            }
-            output = userInput;
-
-
-            Console.WriteLine($"Your modified string is on the next line:\n{output}");
+            } while (menuChoice.ToLower() != "done");
         }
     }
 }
