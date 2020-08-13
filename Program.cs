@@ -40,6 +40,9 @@ namespace LetterRemover
             {
                 if (userInput[i] == userChar[0])
                 {
+                    // If we try to assign output here rather than userInput, it creates an infinite loop because
+                    // we will continuously set output and then decrement, but without changing the string we are
+                    // iterating through, it will check the same character forever.
                     userInput = userInput.Remove(i, 1);
                     i--;
                 }
