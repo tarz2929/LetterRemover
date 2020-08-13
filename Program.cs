@@ -14,7 +14,7 @@ namespace LetterRemover
             Last Modified: August 13, 2020
             */
 
-            string userInput, userChar, output="", menuChoice = "";
+            string menuChoice = "";
             
             Console.WriteLine("Welcome to the letter remover application! You will be prompted to enter both a string and a character, and every instance of that character will be removed from the string.\n");
 
@@ -25,6 +25,8 @@ namespace LetterRemover
                 menuChoice = Console.ReadLine();
                 if (menuChoice.ToLower() != "done")
                 {
+                    string userInput, userChar, output = "";
+
                     Console.Write("Please enter a string from which characters will be removed: ");
                     userInput = Console.ReadLine().Trim();
 
@@ -35,7 +37,7 @@ namespace LetterRemover
                 
                     for (int i = 0; i < userInput.Length; i++)
                     {
-                        if (userInput.ToUpper()[i] != userChar.ToUpper()[0])
+                        if (!userChar.ToUpper().Contains(userInput.ToUpper()[i]))
                         {
                             output += userInput[i];
                         }
