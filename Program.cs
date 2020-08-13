@@ -25,21 +25,26 @@ namespace LetterRemover
                 menuChoice = Console.ReadLine();
                 if (menuChoice.ToLower() != "done")
                 {
-                    string userInput, userChar, output = "";
+                    string userInput, userChar, output = "", replaceWith;
 
                     Console.Write("Please enter a string from which characters will be removed: ");
                     userInput = Console.ReadLine().Trim();
 
-                    Console.Write("Please enter a character to remove from the string: ");
+                    Console.Write("Please enter character(s) to remove from the string: ");
                     userChar = Console.ReadLine();
 
-                    
+                    Console.Write("Please enter a character to replace these characters with:");
+                    replaceWith = Console.ReadLine();
                 
                     for (int i = 0; i < userInput.Length; i++)
                     {
                         if (!userChar.ToUpper().Contains(userInput.ToUpper()[i]))
                         {
                             output += userInput[i];
+                        }
+                        else
+                        {
+                            output += replaceWith;
                         }
                     }
                 
