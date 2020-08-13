@@ -1,0 +1,21 @@
+declare variables - userInput, userChar, output
+prompt the user for a string and read it in
+prompt the user for a character to remove
+remove all instances of the character from userInput
+output the modified string
+
+
+
+
+remove all instances of a character from a string:
+
+for each character in the string:
+    if that character is not the "bad" character:
+        add that character to a new string
+
+for each index in the string:
+    if the character at that index is the "bad" character:
+        remove the character
+        decrement our index
+
+
